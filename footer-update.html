@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer-Update für agent-bot.de</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 32px 0;
+        }
+        .old-version, .new-version {
+            padding: 24px;
+            border-radius: 8px;
+        }
+        .old-version {
+            background: #fef2f2;
+            border: 2px dashed #ef4444;
+        }
+        .new-version {
+            background: #f0fdf4;
+            border: 2px dashed #10b981;
+        }
+        .old-version h3, .new-version h3 {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        .old-version h3 {
+            color: #991b1b;
+        }
+        .new-version h3 {
+            color: #166534;
+        }
+        code {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: block;
+            margin: 8px 0;
+            overflow-x: auto;
+        }
+        .step {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+            border-left: 4px solid #3b82f6;
+        }
+        .step h3 {
+            margin-bottom: 12px;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">AGENT-BOT / CRM.BUILD</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Start</a></li>
+                <li><a href="index.html#problem">Problem</a></li>
+                <li><a href="index.html#cases">Cases</a></li>
+                <li><a href="index.html#preise">Preise</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li><a href="#" class="lang-switch">DE | EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="legal-section">
+            <h1>Footer-Update für agent-bot.de</h1>
+            <p class="last-updated">Anleitung zur Integration der rechtlichen Links</p>
+
+            <div class="legal-content">
+                <p>
+                    Diese Seite zeigt, wie der Footer der Hauptseite aktualisiert werden muss, um die erforderlichen Links zu den rechtlichen Seiten hinzuzufügen. Der Footer sollte die Links zu Impressum, Datenschutz, AGB und Widerruf enthalten.
+                </p>
+
+                <div class="comparison">
+                    <div class="old-version">
+                        <h3>Aktueller Footer (ohne Links)</h3>
+                        <code>
+&lt;footer class="footer"&gt;<br>
+&nbsp;&nbsp;&lt;p class="copyright"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2024&nbsp;AGENT-BOT&nbsp;/&nbsp;CRM.BUILD<br>
+&nbsp;&nbsp;&lt;/p&gt;<br>
+&lt;/footer&gt;
+                        </code>
+                    </div>
+                    <div class="new-version">
+                        <h3>Neuer Footer (mit allen Links)</h3>
+                        <code>
+&lt;footer&nbsp;class="footer"&gt;<br>
+&nbsp;&nbsp;&lt;div&nbsp;class="footer-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="footer-links"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="impressum.html"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Impressum<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="datenschutz.html"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datenschutz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="agb.html"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGB<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;widerrufsbelehrung.html"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Widerruf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;class="copyright"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2024&nbsp;AGENT-BOT&nbsp;/&nbsp;CRM.BUILD<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/footer&gt;
+                        </code>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Schritt 1: CSS hinzufügen</h3>
+                    <p>Fügen Sie diese CSS-Stile zu Ihrer bestehenden CSS-Datei oder in einen <code>&lt;style&gt;</code>-Block im <code>&lt;head&gt;</code>-Bereich hinzu:</p>
+                    <code>
+.footer&nbsp;{<br>
+&nbsp;&nbsp;background:&nbsp;#1a1a2e;<br>
+&nbsp;&nbsp;color:&nbsp;#ffffff;<br>
+&nbsp;&nbsp;padding:&nbsp;40px&nbsp;24px;<br>
+}<br>
+<br>
+.footer-content&nbsp;{<br>
+&nbsp;&nbsp;max-width:&nbsp;1200px;<br>
+&nbsp;&nbsp;margin:&nbsp;0&nbsp;auto;<br>
+&nbsp;&nbsp;text-align:&nbsp;center;<br>
+}<br>
+<br>
+.footer-links&nbsp;{<br>
+&nbsp;&nbsp;display:&nbsp;flex;<br>
+&nbsp;&nbsp;justify-content:&nbsp;center;<br>
+&nbsp;&nbsp;flex-wrap:&nbsp;wrap;<br>
+&nbsp;&nbsp;gap:&nbsp;24px;<br>
+&nbsp;&nbsp;margin-bottom:&nbsp;24px;<br>
+}<br>
+<br>
+.footer-links&nbsp;a&nbsp;{<br>
+&nbsp;&nbsp;color:&nbsp;#ffffff;<br>
+&nbsp;&nbsp;text-decoration:&nbsp;none;<br>
+&nbsp;&nbsp;font-size:&nbsp;14px;<br>
+&nbsp;&nbsp;opacity:&nbsp;0.8;<br>
+&nbsp;&nbsp;transition:&nbsp;all&nbsp;0.2s&nbsp;ease;<br>
+}<br>
+<br>
+.footer-links&nbsp;a:hover&nbsp;{<br>
+&nbsp;&nbsp;opacity:&nbsp;1;<br>
+&nbsp;&nbsp;text-decoration:&nbsp;underline;<br>
+}<br>
+<br>
+.copyright&nbsp;{<br>
+&nbsp;&nbsp;font-size:&nbsp;14px;<br>
+&nbsp;&nbsp;opacity:&nbsp;0.6;<br>
+}
+                    </code>
+                </div>
+
+                <div class="step">
+                    <h3>Schritt 2: Footer-HTML ersetzen</h3>
+                    <p>Ersetzen Sie den bestehenden Footer-Code durch den neuen Code mit allen erforderlichen Links.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Schritt 3: Rechtliche Seiten hochladen</h3>
+                    <p>Laden Sie alle erstellten HTML-Dateien auf Ihren Server hoch:</p>
+                    <ul>
+                        <li><code>impressum.html</code></li>
+                        <li><code>datenschutz.html</code></li>
+                        <li><code>agb.html</code></li>
+                        <li><code>widerrufsbelehrung.html</code></li>
+                        <li><code>styles.css</code> (falls noch nicht vorhanden)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Schritt 4: Cookie-Banner integrieren</h3>
+                    <p>Fügen Sie den Cookie-Consent-Banner in Ihre Hauptseite ein. Fügen Sie diesen Code vor dem schließenden <code>&lt;/body&gt;</code>-Tag hinzu:</p>
+                    <code>
+&lt;script&nbsp;src="cookie-consent.js"&gt;&lt;/script&gt;
+                    </code>
+                </div>
+
+                <div class="step">
+                    <h3>Wichtig: Firmendaten ergänzen</h3>
+                    <p>Vergessen Sie nicht, in allen erstellten Dateien die Platzhalter durch Ihre tatsächlichen Firmendaten zu ersetzen:</p>
+                    <ul>
+                        <li><code>[Firmenname eintragen]</code> → Ihr vollständiger Firmenname</li>
+                        <li><code>[Rechtsform eintragen]</code> → z.B. GmbH, UG, Einzelunternehmen</li>
+                        <li><code>[Straße und Hausnummer]</code> → Ihre vollständige Adresse</li>
+                        <li><code>[Postleitzahl und Ort]</code> → PLZ und Stadt</li>
+                        <li><code>[E-Mail-Adresse]</code> → Ihre Kontakt-E-Mail</li>
+                        <li><code>[Telefonnummer]</code> → Ihre Telefonnummer</li>
+                        <li><code>[HRB-Nummer oder vergleichbar]</code> → Handelsregisternummer</li>
+                        <li><code>[DE-Nummer eintragen]</code> → Umsatzsteuer-ID</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="agb.html">AGB</a>
+                <a href="widerrufsbelehrung.html">Widerruf</a>
+            </div>
+            <p class="copyright">&copy; 2024 AGENT-BOT / CRM.BUILD. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>

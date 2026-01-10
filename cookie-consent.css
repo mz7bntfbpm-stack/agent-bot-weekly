@@ -1,0 +1,196 @@
+/**
+ * Cookie Consent CSS Styles
+ * Ergänzende Styles für den Cookie-Banner
+ * 
+ * Diese Datei kann optional verwendet werden, wenn Sie das Design
+ * des Cookie-Banners anpassen möchten.
+ */
+
+/* ==================== COOKIE BANNER CONTAINER ==================== */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cookie-consent-banner.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ==================== BUTTON STYLES ==================== */
+.cookie-consent-banner button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+.cookie-consent-banner button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.cookie-consent-banner button:active {
+    transform: translateY(0);
+}
+
+/* Accept Button - Primary */
+.cookie-consent-banner .cc-accept-btn {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+.cookie-consent-banner .cc-accept-btn:hover {
+    background: #2563eb;
+}
+
+/* Reject Button - Secondary */
+.cookie-consent-banner .cc-reject-btn {
+    background: #ffffff;
+    color: #4a4a6a;
+    border: 1px solid #e2e8f0;
+}
+
+.cookie-consent-banner .cc-reject-btn:hover {
+    background: #f8f9fa;
+    border-color: #cbd5e1;
+}
+
+/* Settings Button - Tertiary */
+.cookie-consent-banner .cc-settings-btn {
+    background: #ffffff;
+    color: #4a4a6a;
+    border: 1px solid #e2e8f0;
+}
+
+.cookie-consent-banner .cc-settings-btn:hover {
+    background: #f8f9fa;
+    border-color: #cbd5e1;
+}
+
+/* Save Button */
+.cookie-consent-banner .cc-save-btn {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+.cookie-consent-banner .cc-save-btn:hover {
+    background: #2563eb;
+}
+
+/* ==================== CHECKBOX STYLES ==================== */
+.cookie-consent-banner input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3b82f6;
+    border-radius: 4px;
+}
+
+.cookie-consent-banner input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .cookie-consent-banner {
+        padding: 16px;
+    }
+
+    .cookie-consent-banner .cc-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cookie-consent-banner .cc-buttons button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .cookie-consent-banner .cc-buttons button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes cc-slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cookie-consent-banner.animate-in {
+    animation: cc-slide-up 0.3s ease forwards;
+}
+
+/* ==================== DARK MODE SUPPORT ==================== */
+@media (prefers-color-scheme: dark) {
+    .cookie-consent-banner {
+        background: #1f2937;
+        color: #f9fafb;
+    }
+
+    .cookie-consent-banner p,
+    .cookie-consent-banner label {
+        color: #d1d5db;
+    }
+
+    .cookie-consent-banner .cc-reject-btn,
+    .cookie-consent-banner .cc-settings-btn {
+        background: #374151;
+        color: #f9fafb;
+        border-color: #4b5563;
+    }
+
+    .cookie-consent-banner .cc-reject-btn:hover,
+    .cookie-consent-banner .cc-settings-btn:hover {
+        background: #4b5563;
+    }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+    .cookie-consent-banner {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.cookie-consent-banner:focus-within {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+}
+
+/* Focus styles für Buttons */
+.cookie-consent-banner button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .cookie-consent-banner {
+        border-top: 2px solid #000000;
+    }
+
+    .cookie-consent-banner button {
+        border: 2px solid #000000;
+    }
+}
