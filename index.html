@@ -1560,12 +1560,30 @@
             display: flex;
         }
         
+    /* Additional safety rules for viewport centering */
+    .exit-intent-overlay.active {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow-y: auto !important;
+    }
+
+    .exit-intent-modal {
+        margin: auto !important;
+    }
+        
         .exit-intent-modal {
             background: var(--color-bg-card);
             border: 1px solid var(--color-accent-warning);
             border-radius: var(--radius-md);
             max-width: 500px;
             width: 100%;
+            
             position: relative;
             box-shadow: 0 0 50px rgba(255, 170, 0, 0.3);
         }
