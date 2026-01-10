@@ -2780,7 +2780,23 @@
             
             scoreEl.className = 'health-score';
             if (healthScore >= 70) scoreEl.classList.add('good');
-            else if (healthScore >= 45) scoreEl.classList.add('moderate');
+            else if (healthScore >= 45) scoreEl.classList.add('moderat
+    
+    // Update result text based on score
+    const resultText = document.querySelector('[data-lang="health-result-text"]');
+    if (healthScore >= 70) {
+        resultText.textContent = 'Exzellent! Dein CRM-System ist gut optimiert.';
+    } else if (healthScore >= 45) {
+        resultText.textContent = 'Dein CRM-System hat Optimierungspotenzial.';
+    } else {
+        resultText.textContent = 'Dein CRM-System benötigt dringend Optimierung.';
+    }
+    
+    // Scroll to result
+    setTimeout(() => {
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+}
         }
         
         // FORM
