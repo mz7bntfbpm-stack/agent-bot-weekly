@@ -1845,5 +1845,85 @@
             }
         });
     </script>
+
+        <!-- Data Archive Section -->
+    <section id="data-archive" style="padding: 80px 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 48px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">The Data Archive</h2>
+            <p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 60px;">Exklusive Ressourcen für Ihre CRM-Implementation</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                <!-- Resource Card 1 -->
+                <div style="background: rgba(255,255,255,0.03); border-radius: 16px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, #00d4ff 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">📋</div>
+                    <h3 style="font-size: 24px; color: var(--text-primary); margin-bottom: 15px;">Implementation Checklist</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Vollständiger Implementierungs-Leitfaden</p>
+                </div>
+
+                <!-- Resource Card 2 -->
+                <div style="background: rgba(255,255,255,0.03); border-radius: 16px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">💰</div>
+                    <h3 style="font-size: 24px; color: var(--text-primary); margin-bottom: 15px;">ROI Calculator</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Interaktive ROI-Berechnung</p>
+                </div>
+
+                <!-- Resource Card 3 -->
+                <div style="background: rgba(255,255,255,0.03); border-radius: 16px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff00ff 0%, #00d4ff 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">🏆</div>
+                    <h3 style="font-size: 24px; color: var(--text-primary); margin-bottom: 15px;">Industry Best Practices</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Branchenspezifische Best Practices</p>
+                </div>
+            </div>
+
+            <!-- Email Form -->
+            <div style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 16px; padding: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                <h3 style="font-size: 28px; color: var(--text-primary); margin-bottom: 20px;">Zugang erhalten</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">Geben Sie Ihre E-Mail-Adresse ein, um Zugang zu allen Ressourcen zu erhalten</p>
+                
+                <form id="archive-form" onsubmit="handleArchiveSubmit(event)" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <input type="email" id="archive-email" required placeholder="ihre@email.de" style="flex: 1; min-width: 250px; padding: 16px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--text-primary); font-size: 16px; outline: none; transition: all 0.3s;" />
+                    <button type="submit" style="padding: 16px 40px; background: linear-gradient(135deg, var(--primary) 0%, #00d4ff 100%); border: none; border-radius: 12px; color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; white-space: nowrap;">Downloads erhalten →</button>
+                </form>
+                
+                <div id="download-links" style="display: none; margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="color: var(--success); margin-bottom: 20px; font-weight: 600;">✓ Vielen Dank! Hier sind Ihre Downloads:</p>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <a href="/crm-implementation-checklist.md" download style="padding: 16px 24px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; color: var(--success); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; justify-content: space-between;">
+                            <span>📋 Implementation Checklist</span>
+                            <span style="opacity: 0.7;">↓ MD</span>
+                        </a>
+                        <a href="/crm-roi-calculator-template.md" download style="padding: 16px 24px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; color: var(--success); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; justify-content: space-between;">
+                            <span>💰 ROI Calculator Template</span>
+                            <span style="opacity: 0.7;">↓ MD</span>
+                        </a>
+                        <a href="/crm-industry-best-practices.md" download style="padding: 16px 24px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; color: var(--success); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; justify-content: space-between;">
+                            <span>🏆 Industry Best Practices</span>
+                            <span style="opacity: 0.7;">↓ MD</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleArchiveSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('archive-email').value;
+            
+            // Simple email validation
+            if (email && email.includes('@')) {
+                // Store email (you can add backend integration here)
+                console.log('Email submitted:', email);
+                
+                // Show download links
+                document.getElementById('archive-form').style.display = 'none';
+                document.getElementById('download-links').style.display = 'block';
+                
+                // Optional: Send to analytics or backend
+                // fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+            }
+        }
+    </script>
 </body>
 </html>
