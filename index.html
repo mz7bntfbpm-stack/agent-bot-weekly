@@ -2806,15 +2806,158 @@
         }
         
         // FORM
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const data = Object.fromEntries(new FormData(form));
-            console.log('Form submitted:', data);
-            
-            form.style.display = 'none';
-            document.getElementById('formSuccess').classList.add('active');
+       /**
+ * Kontaktformular Validierung und Verarbeitung
+ * Security-Audit: Input-Validierung und XSS-Prävention
+ */
+class ContactFormValidator {
+    constructor() {
+        this.emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        this.nameRegex = /^[a-zA-ZäöüßÄÖÜ\s'-]{2,100}$/;
+        this.phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        this.maxMessageLength = 5000;
+        
+        this.errors = [];
+    }
+
+    /**
+     * Validierung aller Formularfelder
+     * @param {Object} data - Formulardaten
+     * @returns {Object} Validierungsergebnis mit Fehlern
+     */
+    validate(data) {
+        this.errors = [];
+        
+        // Name-Validierung
+        if (!data.name || data.name.trim().length < 2) {
+            this.errors.push({ field: 'name', message: 'Name muss mindestens 2 Zeichen lang sein' });
+        } else if (!this.nameRegex.test(data.name.trim())) {
+            this.errors.push({ field: 'name', message: 'Name enthält ungültige Zeichen' });
         }
+        
+        // E-Mail-Validierung
+        if (!data.email || !this.emailRegex.test(data.email.trim())) {
+            this.errors.push({ field: 'email', message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein' });
+        }
+        
+        // Telefon-Validierung (optional, nur wenn ausgefüllt)
+        if (data.phone && data.phone.trim().length > 0 && !this.phoneRegex.test(data.phone.trim())) {
+            this.errors.push({ field: 'phone', message: 'Bitte geben Sie eine gültige Telefonnummer ein' });
+        }
+        
+        // Nachricht-Validierung
+        if (!data.message || data.message.trim().length < 10) {
+            this.errors.push({ field: 'message', message: 'Nachricht muss mindestens 10 Zeichen lang sein' });
+        } else if (data.message.length > this.maxMessageLength) {
+            this.errors.push({ field: 'message', message: 'Nachricht ist zu lang (max. 5000 Zeichen)' });
+        }
+        
+        return {
+            isValid: this.errors.length === 0,
+            errors: this.errors
+        };
+    }
+
+    /**
+     * XSS-Sanitisierung aller Eingaben
+     * @param {string} input - Roheingabe
+     * @returns {string} Sanitisierte Ausgabe
+     */
+    sanitize(input) {
+        if (typeof input !== 'string') return input;
+        
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#x27;',
+            '/': '&#x2F;',
+            '`': '&#x60;',
+            '=': '&#x3D;'
+        };
+        
+        const reg = /[&<>"'`=/]/gi;
+        return input.replace(reg, (match) => map[match]);
+    }
+
+    /**
+     * Sichere Formularverarbeitung
+     * @param {HTMLFormElement} form - Das zu verarbeitende Formular
+     * @returns {Promise<Object>} Verarbeitungsergebnis
+     */
+    async processForm(form) {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Validierung
+        const validation = this.validate(data);
+        if (!validation.isValid) {
+            return { success: false, errors: validation.errors };
+        }
+        
+        // Sanitisierung
+        const sanitizedData = {
+            name: this.sanitize(data.name),
+            email: this.sanitize(data.email),
+            phone: this.sanitize(data.phone || ''),
+            message: this.sanitize(data.message),
+            timestamp: new Date().toISOString(),
+            source: 'agent-bot-weekly'
+        };
+        
+        // API-Aufruf (serverseitig)
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': this.getCSRFToken()
+                },
+                body: JSON.stringify(sanitizedData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status}`);
+            }
+            
+            return { success: true, message: 'Nachricht erfolgreich gesendet' };
+        } catch (error) {
+            console.error('Form submission error:', error);
+            return { success: false, errors: [{ field: 'general', message: 'Übertragungsfehler. Bitte erneut versuchen.' }] };
+        }
+    }
+
+    getCSRFToken() {
+        return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+    }
+}
+
+// Event-Listener Initialisierung
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const validator = new ContactFormValidator();
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const result = await validator.processForm(form);
+        
+        if (result.success) {
+            showNotification('success', 'Vielen Dank! Ihre Nachricht wurde gesendet.');
+            form.reset();
+        } else {
+            showValidationErrors(result.errors);
+        }
+    });
+});
+
+function showNotification(type, message) {
+    // Notification-UI Logik
+}
+
+function showValidationErrors(errors) {
+    // Fehleranzeige-Logik
+}
         
         // EXIT INTENT
         function showExitIntent() {
