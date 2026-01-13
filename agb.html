@@ -1,26 +1,58 @@
-<!DOCTYPE html>
-<html lang="de">
+<!-- index.html - HEAD Section -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allgemeine Geschäftsbedingungen - AGENT-BOT / CRM.BUILD</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Content Security Policy - XSS-Schutz -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   font-src 'self' https://fonts.gstatic.com;
+                   img-src 'self' data: https:;
+                   connect-src 'self' https://www.google-analytics.com;
+                   frame-ancestors 'self';
+                   form-action 'self';
+                   base-uri 'self'">
+    
+    <!-- X-Frame-Options - Clickjacking-Schutz -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    
+    <!-- X-Content-Type-Options -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <!-- Referrer-Policy -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Permissions-Policy -->
+    <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://agent-bot.de/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agent-bot.de/">
+    <meta property="og:title" content="AGENT-BOT / CRM.BUILD - Custom CRM Lösungen">
+    <meta property="og:description" content="Individuelle CRM-Systeme in 2 Wochen. Maximieren Sie Ihre Umsätze mit maßgeschneiderten Lösungen.">
+    <meta property="og:image" content="https://agent-bot.de/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AGENT-BOT / CRM.BUILD - Custom CRM Lösungen">
+    <meta name="twitter:description" content="Individuelle CRM-Systeme in 2 Wochen. Jetzt beraten lassen.">
+    <meta name="twitter:image" content="https://agent-bot.de/images/twitter-card.jpg">
+    
+    <title>AGENT-BOT / CRM.BUILD - Custom CRM Lösungen in 2 Wochen</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">AGENT-BOT / CRM.BUILD</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Start</a></li>
-                <li><a href="index.html#problem">Problem</a></li>
-                <li><a href="index.html#cases">Cases</a></li>
-                <li><a href="index.html#preise">Preise</a></li>
-                <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="index.html#kontakt">Kontakt</a></li>
-                <li><a href="#" class="lang-switch">DE | EN</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <main class="main-content">
         <section class="legal-section">
