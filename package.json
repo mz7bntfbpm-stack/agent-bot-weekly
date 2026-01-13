@@ -1,10 +1,42 @@
 {
   "name": "agent-bot-weekly",
   "version": "1.0.0",
+  "description": "AGENT-BOT / CRM.BUILD - Custom CRM Solutions Landing Page",
+  "author": "AGENT-BOT Team",
+  "license": "MIT",
+  "keywords": [
+    "crm",
+    "landing-page",
+    "german",
+    "business",
+    "b2b"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000",
+    "build": "npm run lint && npm run test",
+    "lint": "npx eslint . --ext .html,.js,.css",
+    "lint:fix": "npx eslint . --ext .html,.js,.css --fix",
+    "test": "npm run test:html && npm run test:js && npm run test:css",
+    "test:html": "npx html-validate index.html impressum.html datenschutz.html",
+    "test:js": "npx eslint cookie-consent.js test.js --no-error-on-unmatched-pattern",
+    "test:css": "npx stylelint styles.css cookie-consent.css",
+    "preview": "npx serve . -l 3000",
+    "audit": "npx npm-audit",
+    "security:scan": "npx snyk test"
   },
   "dependencies": {
     "serve": "^14.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "html-validate": "^8.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "npm-audit": "^3.0.0",
+    "snyk": "^1.1200.0"
   }
 }
