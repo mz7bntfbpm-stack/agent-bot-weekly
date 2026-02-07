@@ -1,0 +1,550 @@
+/* 
+ * Stylesheet für rechtliche Seiten
+ * AGENT-BOT / CRM.BUILD
+ * 
+ * Dieses Stylesheet enthält alle Stile für:
+ * - Impressum
+ * - Datenschutzerklärung
+ * - AGB
+ * - Widerrufsbelehrung
+ */
+
+/* ==================== GRUNDEINSTELLUNGEN ==================== */
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #6b7280;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #f1f5f9;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background: var(--bg-tertiary);
+}
+
+.lang-switch {
+    color: var(--text-muted) !important;
+}
+
+/* ==================== HAUPTINHALT ==================== */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    min-height: calc(100vh - 200px);
+}
+
+.legal-section {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.legal-section h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 32px 32px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.last-updated {
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 0 32px 32px;
+    margin-top: -16px;
+}
+
+.legal-content {
+    padding: 32px;
+}
+
+.legal-content h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 32px 0 16px;
+    padding-top: 16px;
+}
+
+.legal-content h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.legal-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 24px 0 12px;
+}
+
+.legal-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 20px 0 10px;
+}
+
+.legal-content p {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+}
+
+.legal-content ul,
+.legal-content ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.legal-content li {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.legal-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.legal-content a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* ==================== INHALTSVERZEICHNIS ==================== */
+.toc {
+    background: var(--bg-secondary);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 32px;
+}
+
+.toc h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 16px;
+}
+
+.toc ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.toc li {
+    margin-bottom: 8px;
+}
+
+.toc a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.toc a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* ==================== KONTAKTBOX ==================== */
+.contact-box {
+    background: var(--bg-tertiary);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 16px 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.contact-box p {
+    margin-bottom: 8px;
+}
+
+.contact-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==================== WARNBOXEN ==================== */
+.warning-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 24px 0;
+    border-left: 4px solid var(--warning-color);
+}
+
+.warning-box h2 {
+    color: #92400e;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 12px;
+}
+
+.warning-box p {
+    color: #78350f;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 24px 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-box h2 {
+    color: #1e40af;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 12px;
+}
+
+.info-box h3 {
+    color: #1e40af;
+}
+
+.info-box p {
+    color: #1e3a8a;
+}
+
+/* ==================== FORMULARBOX ==================== */
+.form-box {
+    background: var(--bg-tertiary);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 24px 0;
+}
+
+.form-content {
+    background: var(--bg-primary);
+    padding: 24px;
+    border-radius: var(--radius-sm);
+    margin-top: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.form-content p {
+    margin-bottom: 12px;
+}
+
+/* ==================== DOWNLOAD BEREICH ==================== */
+.download-section {
+    background: var(--bg-secondary);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 32px 0;
+    text-align: center;
+}
+
+.download-section h3 {
+    margin-bottom: 16px;
+}
+
+.download-section p {
+    margin-bottom: 16px;
+}
+
+.download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.download-link:hover {
+    background: var(--primary-hover);
+    color: var(--bg-primary);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 40px 24px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.footer-links a {
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 12px 16px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .main-content {
+        padding: 24px 16px;
+    }
+
+    .legal-section h1 {
+        font-size: 24px;
+        padding: 24px 16px 12px;
+    }
+
+    .last-updated {
+        padding: 0 16px 24px;
+    }
+
+    .legal-content {
+        padding: 24px 16px;
+    }
+
+    .legal-content h2 {
+        font-size: 20px;
+    }
+
+    .legal-content h3 {
+        font-size: 16px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .download-buttons {
+        flex-direction: column;
+    }
+
+    .download-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    .legal-section h1 {
+        font-size: 20px;
+    }
+
+    .legal-content {
+        padding: 16px;
+    }
+
+    .contact-box,
+    .warning-box,
+    .info-box,
+    .form-box {
+        padding: 16px;
+    }
+}
+
+/* ==================== DRUCKSTILE ==================== */
+@media print {
+    .header,
+    .footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .legal-section {
+        box-shadow: none;
+    }
+
+    .legal-section h1 {
+        font-size: 24pt;
+        border-bottom: none;
+        padding: 0 0 20px 0;
+    }
+
+    .legal-content h2 {
+        font-size: 16pt;
+        margin-top: 24px;
+    }
+
+    .legal-content h3 {
+        font-size: 14pt;
+    }
+
+    .legal-content {
+        padding: 0;
+    }
+
+    a {
+        color: var(--text-primary);
+        text-decoration: none;
+    }
+
+    .toc,
+    .warning-box,
+    .info-box,
+    .form-box,
+    .download-section {
+        border: 1px solid #ccc;
+        background: none;
+    }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Focus States für Tastaturnavigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #000000;
+        --text-secondary: #1a1a1a;
+        --text-muted: #333333;
+        --border-color: #000000;
+    }
+}
